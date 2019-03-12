@@ -19,6 +19,7 @@
 2. 请求登陆页面是需要额外的三个字段：content-type, x-xsrftoken, x-zse-83，其中x-xsrftoken是通过获取set-cookie的值得到的；
 3. signature字段是由grant_type, client_id, source, timestamp四个参数加密而成的，其中除了timestamp外都是固定的；
 4. form data构造完之后，要先按照顺序encode，再传入加密函数，才能正确得到加密后的字符串（文一中就是缺少这一步）。
+5. execjs依赖于node环境，最好和我使用的node版本一致：v11.10.0
 
 如果有问题的可以联系我：897139816@qq.com
 

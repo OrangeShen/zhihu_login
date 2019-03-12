@@ -77,7 +77,7 @@ class ZhihuAccount(object):
             'utm_source': ''
         })
         # Read js file and compile, then call the encrypt function
-        js_code = open('encrypt.js', 'r', errors='ignore').read()
+        js_code = open('encrypt.js', 'r', errors='ignore', encoding='utf-8').read()
         encryption = execjs.compile(source=js_code)
         encrypted_data = encryption.call('Q', urlencode(self.login_data))
         resp = self.session.post(self.login_api, data=encrypted_data, headers=headers)
